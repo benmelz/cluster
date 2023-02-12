@@ -2,9 +2,13 @@
   "name": "app",
   "private": "true",
   "dependencies": {
+    "@csstools/postcss-sass": "^5.0.1",
+    "@fortawesome/fontawesome-free": "^6.3.0",
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.2.5",
+    "@popperjs/core": "^2.11.6",
     "autoprefixer": "^10.4.13",
+    "bootstrap": "^5.3.0-alpha1",
     "esbuild": "^0.17.7",
     "postcss": "^8.4.21",
     "postcss-cli": "^10.1.0",
@@ -12,6 +16,14 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
-    "build:css": "postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css"
+    "build:css": "postcss ./app/assets/stylesheets/application.scss -o ./app/assets/builds/application.css",
+    "lint": "eslint .",
+    "lint:css": "stylelint app/assets/stylesheets/**/*.scss"
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-google": "^0.14.0",
+    "stylelint": "^15.1.0",
+    "stylelint-config-standard-scss": "^7.0.0"
   }
 }

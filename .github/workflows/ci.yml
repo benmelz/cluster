@@ -1,0 +1,46 @@
+name: 'CI'
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:11
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_USER: runner
+          POSTGRES_PASSWORD:
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      CI: true
+      RAILS_ENV: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up ruby
+        uses: ruby/setup-ruby@v1
+      - name: Read node version
+        id: read_node_version
+        run: echo "version=$(cat .node-version)" >> $GITHUB_OUTPUT
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ steps.read_node_version.outputs.version }}
+      - name: Set up rails
+        run: bin/setup
+      - name: Run rubocop
+        run: bin/rubocop
+      - name: Run haml-lint
+        run: bin/haml-lint
+      - name: Run eslint
+        run: yarn lint
+      - name: Run stylelint
+        run: yarn lint:css
+      - name: Run RSpec
+        run: bin/rspec
