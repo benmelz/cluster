@@ -23,3 +23,6 @@
 !/app/assets/builds/.keep
 
 /node_modules
+/coverage/*
+!/coverage/.last_run.json
+spec/examples.txt
