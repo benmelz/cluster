@@ -6,5 +6,5 @@ $fa-font-path: "";
 @import "bootstrap/scss/bootstrap";
 
 #flash-container .alert:first-child {
-  @extend %mt-3;
+  margin-top: $spacer;
 }
