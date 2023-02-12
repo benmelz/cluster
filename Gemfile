@@ -12,6 +12,7 @@ gem 'puma'
 gem 'propshaft'
 gem 'rails'
 gem 'redis'
+gem 'stimulus-rails'
 gem 'turbo-rails'
 
 group :development, :test do
