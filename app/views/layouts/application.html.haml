@@ -24,7 +24,7 @@
             %ul.navbar-nav
               - if user_signed_in?
                 %li.nav-item.dropdown
-                  = link_to 'User',
+                  = link_to current_user.first_name.humanize,
                             '#',
                             role: 'button',
                             class: 'nav-link dropdown-toggle',
