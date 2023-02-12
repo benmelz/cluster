@@ -8,4 +8,13 @@
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   %body
-    = yield
+    %header
+      #flash-container.container
+        - flash.each do |variant, content|
+          - variant = 'info' if variant.to_s == 'notice'
+          - variant = 'danger' if variant.to_s == 'alert'
+          .alert.alert-dismissible.fade.show{ role: 'alert', class: "alert-#{variant}" }
+            = content
+            = button_tag '', type: 'button', class: 'btn-close', 'data-bs-dismiss': 'alert', 'aria-label': 'Close'
+    %body
+      = yield

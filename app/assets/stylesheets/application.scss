@@ -4,3 +4,7 @@ $fa-font-path: "";
 @import "@fortawesome/fontawesome-free/scss/regular";
 @import "@fortawesome/fontawesome-free/scss/solid";
 @import "bootstrap/scss/bootstrap";
+
+#flash-container .alert:first-child {
+  @extend .mt-3;
+}
