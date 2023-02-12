@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  # username:
+  # password:
+
+development:
+  <<: *default
+  database: cluster_development
+
+test:
+  <<: *default
+  database: cluster_test
