@@ -1,0 +1,6 @@
+= form_with model: resource, as: resource_name, url: user_password_path, html: { 'data-turbo': false } do |f|
+  .mb-3
+    = f.label :email, class: 'form-label'
+    = f.email_field :email, autocomplete: 'email', autofocus: true, class: 'form-control'
+  .mb-3
+    = f.submit 'Submit', class: 'btn btn-primary'

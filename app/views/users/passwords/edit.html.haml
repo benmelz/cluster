@@ -1,0 +1,13 @@
+= form_with model: resource,
+            as: resource_name,
+            url: user_password_path,
+            method: :put,
+            html: { 'data-turbo': false } do |f|
+  = f.hidden_field :reset_password_token
+  .mb-3
+    = f.label :password, class: 'form-label'
+    = f.password_field :password, autocomplete: 'new-password', autofocus: true, class: 'form-control'
+  .mb-3
+    = f.label :password_confirmation, class: 'form-label'
+    = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
+  = f.submit 'Submit', class: 'btn btn-primary'
