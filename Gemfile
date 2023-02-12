@@ -8,8 +8,8 @@ gem 'cssbundling-rails'
 gem 'haml'
 gem 'jsbundling-rails'
 gem 'pg'
-gem 'puma'
 gem 'propshaft'
+gem 'puma'
 gem 'rails'
 gem 'redis'
 gem 'stimulus-rails'
@@ -20,6 +20,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'web-console'
 end
 
