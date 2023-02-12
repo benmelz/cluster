@@ -27,7 +27,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['.eslintrc.js', '.postcssrc.js'],
+      files: ['.eslintrc.js', '.postcssrc.js', '.stylelintrc.js'],
       env: {
         browser: false,
         node: true
