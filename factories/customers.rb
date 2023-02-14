@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :customer do
-    sequence(:email) { |n| "customer#{n}@cluster.com" }
-    sequence(:first_name) { |n| "FirstName#{n}" }
-    sequence(:middle_name) { |n| "MiddleName#{n}" }
-    sequence(:last_name) { |n| "LastName#{n}" }
+    email { Faker::Internet.unique.free_email(name: "#{first_name} #{last_name}") }
+    first_name { Faker::Name.first_name }
+    middle_name { Faker::Name.middle_name }
+    last_name { Faker::Name.last_name }
   end
 end
