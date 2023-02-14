@@ -8,7 +8,7 @@ RSpec.describe User::Profile do
   end
 
   describe 'validations' do
-    subject { build(:user_profile) }
+    subject { build(:user).profile }
 
     it { is_expected.to validate_uniqueness_of(:user_id) }
     it { is_expected.to validate_presence_of(:first_name) }
