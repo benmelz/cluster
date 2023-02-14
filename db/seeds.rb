@@ -2,3 +2,4 @@
 
 FactoryBot.create(:user, email: 'ben@development.com', profile_attributes: { first_name: 'Ben', last_name: 'Melz' })
 FactoryBot.create_list(:customer, 50)
+FactoryBot.create_list(:vehicle, 50)
