@@ -1,0 +1,19 @@
+%section.container-fluid.d-flex.justify-content-center
+  .card.max-width-sm.shadow.my-5.p-3
+    .card-body
+      %h1 Log In
+      %hr
+      = form_with model: resource, as: resource_name, url: user_session_path, html: { 'data-turbo': false } do |f|
+        .mb-3
+          = f.label :email, class: 'form-label'
+          = f.email_field :email, autocomplete: 'email', autofocus: true, class: 'form-control'
+        .mb-3
+          = f.label :password, class: 'form-label'
+          = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
+          .form-text
+            = link_to 'Forgot password?', new_user_password_path
+        .mb-3
+          .form-check
+            = f.check_box :remember_me, class: 'form-check-input'
+            = f.label :remember_me, class: 'form-check-label'
+        = f.submit 'Submit', class: 'btn btn-primary'

@@ -3,5 +3,5 @@
 Rails.application.routes.draw do
   root 'application#root'
 
-  devise_for :users
+  devise_for :users, controllers: { passwords: 'users/passwords', sessions: 'users/sessions' }
 end
