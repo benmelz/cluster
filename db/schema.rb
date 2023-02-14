@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_192946) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_203706) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_192946) do
     t.string "vin", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "make", null: false
+    t.string "model", null: false
+    t.integer "year", null: false
     t.index ["vin"], name: "index_vehicles_on_vin", unique: true
   end
 
